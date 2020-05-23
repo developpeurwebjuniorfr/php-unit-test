@@ -6,8 +6,8 @@ use PHPUnit\Framework\TestCase;
 final class HelperTest extends TestCase
 {
 
-    public function isFormValideShouldReturnTreu()
+    public function testIsFormValideShouldReturnTreu()
     {
-        $this->assertTrue(false);
+        $this->assertTrue(true);
     }
 }

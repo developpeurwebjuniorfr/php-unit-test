@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core;
+namespace App\Services;
 
-class Helper
+class UserService
 {
 
     /**
@@ -16,15 +16,5 @@ class Helper
             && isset($params[':age']) && !empty($params[':firstname'])
             && isset($params[':password']) && !empty($params[':password'])
             && isset($params[':email']) && !empty($params[':email']);
-    }
-
-    /**
-     * Redirect to a $url
-     * @param string|null $url
-     */
-    public static function redirectTo($url = '/'): string
-    {
-        header('Location: ' . $url);
-        exit();
     }
 }

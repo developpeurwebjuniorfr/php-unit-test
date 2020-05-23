@@ -4,7 +4,7 @@
     "authors": [
         {
             "name": "Nicolas",
-            "email": "nicolas@develppeurwebjunior.fr"
+            "email": "nicolas@developpeurwebjunior.fr"
         }
     ],
     "autoload": {
@@ -12,7 +12,8 @@
             "App\\Controllers\\": "Controllers/",
             "App\\Repositories\\": "Repositories/",
             "App\\Models\\": "Models/",
-            "App\\Core\\": "core/"
+            "App\\Services\\": "Services/",
+            "App\\Core\\": "Core/"
         }
     },
     "require": {},

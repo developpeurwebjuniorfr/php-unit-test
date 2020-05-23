@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Core\Helper;
+use App\Core\Router;
 use App\Repositories\Repository;
 use App\Repositories\UserRepository;
+use App\Services\UserService;
 
 class UserController
 {
@@ -29,9 +30,9 @@ class UserController
      */
     public function create()
     {
-        if (Helper::isFormCreateUserValid($_POST)) {
+        if (UserService::isFormCreateUserValid($_POST)) {
             $this->repository->create($_POST);
-            Helper::redirectTo();
+            Router::redirectTo();
         }
     }
 }
