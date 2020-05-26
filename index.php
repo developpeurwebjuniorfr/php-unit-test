@@ -1,20 +1,11 @@
 <?php
 
 require_once('autoload.php');
+require_once('./src/core/core.php');
 
-use App\Controllers\UserController;
+use App\Core\Router;
 
-$uController = new UserController();
-
-include './src/Views/head.html';
-$route = isset($_GET['r']) ? $_GET['r'] : null;
-switch ($route) {
-    case 'create':
-        $uController->create();
-        break;
-    default:
-        $uController->showInscription();
-        break;
-}
-
-include './src/Views/head.html';
+include VIEWS . '/layout/head.php';
+include VIEWS . '/layout/messages.php';
+Router::handle();
+include VIEWS . '/layout/footer.php';

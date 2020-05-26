@@ -3,17 +3,19 @@
 namespace App\Controllers;
 
 use App\Core\Router;
-use App\Repositories\Repository;
+use App\Core\Viewer;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
 
 class UserController
 {
     private $repository;
+    private $viewer;
 
-    public function __construct(Repository $repository = null)
+    public function __construct()
     {
         $this->repository = new UserRepository();
+        $this->viewer = new Viewer($this);
     }
 
     /**
@@ -22,7 +24,7 @@ class UserController
     public function showInscription()
     {
         $users = $this->repository->findAll();
-        include('src/Views/User/inscription.html');
+        include($this->viewer->render('inscription'));
     }
 
     /**
@@ -30,9 +32,13 @@ class UserController
      */
     public function create()
     {
-        if (UserService::isFormCreateUserValid($_POST)) {
-            $this->repository->create($_POST);
-            Router::redirectTo();
+        $params = $_POST;
+        if (UserService::isFormCreateUserValid($params)) {
+            if ($this->repository->create($params)) {
+                Router::redirectTo('/', ["L'enregistrement a réussi."]);
+            }
+
+            Router::redirectTo('/', ["L'enregistrement a échoué."]);
         }
     }
 }

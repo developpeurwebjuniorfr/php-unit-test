@@ -13,7 +13,8 @@
             "App\\Repositories\\": "Repositories/",
             "App\\Models\\": "Models/",
             "App\\Services\\": "Services/",
-            "App\\Core\\": "Core/"
+            "App\\Core\\": "Core/",
+            "App\\Traits\\": "Traits"
         }
     },
     "require": {},

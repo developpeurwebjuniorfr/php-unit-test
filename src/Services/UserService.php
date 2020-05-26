@@ -7,6 +7,7 @@ class UserService
 
     /**
      * Check is inscription form is not empty
+     * @param array params
      * @return bool
      */
     public static function isFormCreateUserValid(array $params): bool
